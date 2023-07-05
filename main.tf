@@ -72,17 +72,17 @@ resource "aws_route_table_association" "a" {
 
 #NAT gateway
 
-resource "aws_nat_gateway" "my_nat_gateway" {
+/* resource "aws_nat_gateway" "my_nat_gateway" {
   allocation_id = aws_eip.my_eip.id
   subnet_id     = aws_subnet.subnet2.id
 }
-
+ */
 #elastic ip for NAT gateway
 
-resource "aws_eip" "my_eip" {
+/* resource "aws_eip" "my_eip" {
   domain = "vpc"
   depends_on = [aws_internet_gateway.my_igw]
-}
+} */
 
 #ec2 in subnet1
 
@@ -122,6 +122,12 @@ resource "aws_security_group" "instance_sg" {
   ingress {
     from_port = 22
     to_port = 22
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    from_port = 8080
+    to_port = 8080
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

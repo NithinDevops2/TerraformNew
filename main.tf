@@ -65,24 +65,24 @@ resource "aws_route_table_association" "a" {
 
 #attach internet gateway to vpc
 
-/* resource "aws_internet_gateway_attachment" "my_vpc_attachment" {
+resource "aws_internet_gateway_attachment" "my_vpc_attachment" {
   internet_gateway_id = aws_internet_gateway.my_igw.id
   vpc_id              = aws_vpc.my_vpc.id
-} */
+}
 
 #NAT gateway
 
-/* resource "aws_nat_gateway" "my_nat_gateway" {
+resource "aws_nat_gateway" "my_nat_gateway" {
   allocation_id = aws_eip.my_eip.id
   subnet_id     = aws_subnet.subnet2.id
 }
- */
+
 #elastic ip for NAT gateway
 
-/* resource "aws_eip" "my_eip" {
+resource "aws_eip" "my_eip" {
   domain = "vpc"
   depends_on = [aws_internet_gateway.my_igw]
-} */
+}
 
 #ec2 in subnet1
 

@@ -65,10 +65,10 @@ resource "aws_route_table_association" "a" {
 
 #attach internet gateway to vpc
 
-resource "aws_internet_gateway_attachment" "my_vpc_attachment" {
+/* resource "aws_internet_gateway_attachment" "my_vpc_attachment" {
   internet_gateway_id = aws_internet_gateway.my_igw.id
   vpc_id              = aws_vpc.my_vpc.id
-}
+} */
 
 #NAT gateway
 
@@ -144,6 +144,13 @@ resource "aws_security_group" "instance_sg" {
     from_port = 8080
     to_port = 8080
     protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }

@@ -108,7 +108,7 @@ resource "null_resource" "install_java" {
       password = "DevOps321"
     }
     inline = [
-      "set-hostname Springapp"
+      "yum install java-17-openjdk"
       ]
   }
 }

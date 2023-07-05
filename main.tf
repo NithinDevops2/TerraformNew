@@ -108,6 +108,7 @@ resource "null_resource" "install_java2" {
       password = "DevOps321"
     }
     inline = [
+      "sudo update-alternatives --config 'java'",
       "sudo yum install java-17-openjdk -y"
       ]
   }

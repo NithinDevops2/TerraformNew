@@ -92,7 +92,6 @@ resource "aws_instance" "instance_subnet1" {
   
   subnet_id = aws_subnet.subnet1.id
   vpc_security_group_ids = [aws_security_group.instance_sg.id]
-  map_public_ip_on_launch = true
   user_data = "${file("java_install.sh")}"
 
   tags = {

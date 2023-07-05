@@ -104,7 +104,7 @@ resource "null_resource" "install_java" {
     connection {
       #type = "ssh"
       host     = aws_instance.instance_subnet1.public_ip
-      user     = "root"
+      user     = "centos"
       password = "DevOps321"
     }
     inline = [

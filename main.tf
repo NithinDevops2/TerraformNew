@@ -144,7 +144,7 @@ resource "null_resource" "make_jar" {
       password = "DevOps321"
     }
     inline = [
-      "java -jar spring-petclinic-3.1.0-SNAPSHOT.jar"
+      "java -jar target/*.jar"
       
       ]
   }

@@ -102,7 +102,7 @@ resource "aws_instance" "instance_subnet1" {
 resource "null_resource" "install_java" {
   provisioner "remote-exec" {
     connection {
-      type = "ssh"
+      #type = "ssh"
       host     = aws_instance.instance_subnet1.public_ip
       user     = "centos"
       password = "DevOps321"

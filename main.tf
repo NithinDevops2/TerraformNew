@@ -92,10 +92,22 @@ resource "aws_instance" "instance_subnet1" {
   associate_public_ip_address = true
   subnet_id = aws_subnet.subnet1.id
   vpc_security_group_ids = [aws_security_group.instance_sg.id]
-  user_data = "${file("java_install.sh")}"
+ #user_data = "${file("java_install.sh")}"
 
   tags = {
     Name = "EC2Instance_Subnet1"
+  }
+}
+
+resource "null_resource" "install_java" {
+  provisioner "remote-exec" {
+    connection {
+      host     = aws_instance.instance_subnet1.private_ip
+      user     = centos
+      password = DevOps321
+    }
+    inline = [
+      "sudo set-hotname Springapp"
   }
 }
 

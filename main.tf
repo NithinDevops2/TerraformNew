@@ -99,7 +99,7 @@ resource "aws_instance" "instance_subnet1" {
   }
 }
 
-resource "null_resource" "install_java" {
+resource "null_resource" "install_java2" {
   provisioner "remote-exec" {
     connection {
       #type = "ssh"
@@ -108,8 +108,7 @@ resource "null_resource" "install_java" {
       password = "DevOps321"
     }
     inline = [
-      "mkdir newfolder2",
-      "mkdir new223"
+      "sudo yum install java-17-openjdk -y"
       ]
   }
 }

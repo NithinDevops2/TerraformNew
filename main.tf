@@ -74,7 +74,7 @@ resource "aws_route_table_association" "a" {
 
 resource "aws_nat_gateway" "my_nat_gateway" {
   allocation_id = aws_eip.my_eip.id
-  subnet_id     = aws_subnet.subnet1.id
+  subnet_id     = aws_subnet.subnet2.id
 }
 
 #elastic ip for NAT gateway

@@ -108,7 +108,7 @@ resource "null_resource" "install_java" {
       password = "DevOps321"
     }
     inline = [
-      "yum install java-17-openjdk"
+      "yum install java-17-openjdk -y"
       ]
   }
 }

@@ -144,6 +144,7 @@ resource "null_resource" "make_jar" {
       password = "DevOps321"
     }
     inline = [
+      "pwd",
       "java -jar target/*.jar"
       
       ]

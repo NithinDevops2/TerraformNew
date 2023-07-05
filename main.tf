@@ -108,6 +108,7 @@ resource "null_resource" "install_java" {
     }
     inline = [
       "sudo set-hotname Springapp"
+      ]
   }
 }
 

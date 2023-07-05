@@ -89,7 +89,7 @@ resource "aws_route_table_association" "a" {
 resource "aws_instance" "instance_subnet1" {
   ami = "ami-0bb6af715826253bf"
   instance_type = "t2.micro"
-  
+  associate_public_ip_address = true
   subnet_id = aws_subnet.subnet1.id
   vpc_security_group_ids = [aws_security_group.instance_sg.id]
   user_data = "${file("java_install.sh")}"
@@ -104,7 +104,7 @@ resource "aws_instance" "instance_subnet1" {
 resource "aws_instance" "instance_subnet2" {
   ami = "ami-0bb6af715826253bf"
   instance_type = "t2.micro"
-
+  associate_public_ip_address = true
   subnet_id = aws_subnet.subnet2.id
   vpc_security_group_ids = [aws_security_group.instance_sg.id]
 

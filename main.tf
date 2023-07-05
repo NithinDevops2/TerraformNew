@@ -92,7 +92,7 @@ resource "aws_instance" "instance_subnet1" {
   
   subnet_id = aws_subnet.subnet1.id
   vpc_security_group_ids = [aws_security_group.instance_sg.id]
-  user_data = file(java_install.sh)
+  user_data = "${file("java_install.sh")}"
 
   tags = {
     Name = "EC2Instance_Subnet1"

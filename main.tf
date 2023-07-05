@@ -44,6 +44,25 @@ resource "aws_internet_gateway" "my_igw" {
   }
 }
 
+resource "aws_route_table" "my_route_table" {
+  vpc_id = aws_vpc.my_vpc.id
+
+  route {
+    cidr_block = "172.20.0.0/16"
+    gateway_id = aws_internet_gateway.my_igw.id
+  }
+
+
+  tags = {
+    Name = "MyRouteTable"
+  }
+}
+
+resource "aws_route_table_association" "a" {
+  subnet_id      = aws_subnet.subnet1.id
+  route_table_id = aws_route_table.my_route_table.id
+}
+
 #attach internet gateway to vpc
 
 /* resource "aws_internet_gateway_attachment" "my_vpc_attachment" {

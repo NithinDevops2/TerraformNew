@@ -104,11 +104,11 @@ resource "null_resource" "install_java" {
     connection {
       #type = "ssh"
       host     = aws_instance.instance_subnet1.public_ip
-      user     = "centos"
+      user     = "root"
       password = "DevOps321"
     }
     inline = [
-      "mkdir newfolderbyterraform"
+      "set-hostname Springapp"
       ]
   }
 }

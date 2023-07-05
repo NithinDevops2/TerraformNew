@@ -103,8 +103,8 @@ resource "null_resource" "install_java" {
   provisioner "remote-exec" {
     connection {
       host     = aws_instance.instance_subnet1.private_ip
-      user     = centos
-      password = DevOps321
+      user     = "centos"
+      password = "DevOps321"
     }
     inline = [
       "sudo set-hotname Springapp"

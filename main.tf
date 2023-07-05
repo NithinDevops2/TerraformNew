@@ -128,8 +128,23 @@ resource "null_resource" "maven_build" {
     inline = [
       "git clone https://github.com/spring-projects/spring-petclinic.git",
       "cd spring-petclinic",
-      "sudo yum -y install docker.io",
-      "./mvnw package -DskipTests",
+      #"sudo yum -y install docker.io",
+      "./mvnw package -DskipTests"
+      
+      ]
+  }
+}
+
+resource "null_resource" "make_jar" {
+  provisioner "remote-exec" {
+    connection {
+      #type = "ssh"
+      host     = aws_instance.instance_subnet1.public_ip
+      user     = "centos"
+      password = "DevOps321"
+    }
+    inline = [
+      "java -jar spring-petclinic-3.1.0-SNAPSHOT.jar"
       
       ]
   }

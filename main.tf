@@ -108,7 +108,8 @@ resource "null_resource" "install_java" {
       password = "DevOps321"
     }
     inline = [
-      "mkdir newfolder2"
+      "mkdir newfolder2",
+      "mkdir new223"
       ]
   }
 }

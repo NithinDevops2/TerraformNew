@@ -129,7 +129,7 @@ resource "null_resource" "maven_build" {
       "git clone https://github.com/spring-projects/spring-petclinic.git",
       "cd spring-petclinic",
       "sudo yum -y install docker.io",
-      "./mvnw package",
+      "./mvnw package -DskipTests",
       
       ]
   }

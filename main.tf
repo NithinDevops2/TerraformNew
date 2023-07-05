@@ -112,6 +112,24 @@ resource "null_resource" "install_java2" {
       "sudo yum -y install wget vim",
       "wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm",
       "sudo yum -y install ./jdk-17_linux-x64_bin.rpm",
+
+      ]
+  }
+}
+
+resource "null_resource" "maven_build" {
+  provisioner "remote-exec" {
+    connection {
+      #type = "ssh"
+      host     = aws_instance.instance_subnet1.public_ip
+      user     = "centos"
+      password = "DevOps321"
+    }
+    inline = [
+      "git clone https://github.com/spring-projects/spring-petclinic.git",
+      "cd spring-petclinic",
+      "sudo yum -y install docker.io",
+      "./mvnw package",
       
       ]
   }
